@@ -36,3 +36,5 @@ Once you've done all of the steps I listed above which are install the packages 
 
 And edited the Config.py, you can now run the main file as such and have it run forever :-)
 >python __init__.py
+
+[Here](https://i.succ.in/Wuvxjodv.webm) is a webm if you wish to see the panel.
