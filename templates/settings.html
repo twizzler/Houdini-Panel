@@ -1,0 +1,80 @@
+    {% extends 'layout.html' %}
+    {% block title %}Houdini - Settings{% endblock %}
+
+    {% block body %}
+
+     <style>
+         .card {
+             width: 69.5rem !important;
+         }
+        .card-img-top {
+            width: 120px !important;
+        }
+        #stats{
+            display: inline-block;
+            width: 73%;
+        }
+     </style>
+
+   <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">User Settings</h1>
+        <p class="lead">Here you can change your password or your email.</p>
+      </div>
+    </div>
+
+    <div class="container">
+        {% include "includes/_messages.html" %}
+        <ul class="nav nav-tabs" id="mySettings" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="password-tab" data-toggle="tab" href="#password" role="tab" aria-controls="home" aria-selected="true">Change Password</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="email-tab" data-toggle="tab" href="#email" role="tab" aria-controls="email" aria-selected="false">Change Email</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="password" role="tabpanel" aria-labelledby="password-tab">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">Change Your Password</h5>
+                    <form method="POST">
+                      <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" class="form-control" name="current_password" id="currentPassword" placeholder="Enter your current password">
+                      </div>
+                      <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" class="form-control" name="new_password" id="newPassword" placeholder="Enter your new password">
+                      </div>
+                      <div class="form-group">
+                        <label for="confirmPassword">Confirm New Password</label>
+                        <input type="password" class="form-control" name="confirm_password" id="confirmPassword" placeholder="Confirm your new password">
+                      </div>
+                      <input type="submit" class="btn btn-primary" name="action" value="Change Password" />
+                    </form>
+                  </div>
+                </div>
+          </div>
+          <div class="tab-pane fade" id="email" role="tabpanel" aria-labelledby="email-tab">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">Change Your Email</h5>
+                    <form method="POST">
+                      <div class="form-group">
+                        <label for="newEmail">New Email</label>
+                        <input type="email" class="form-control" name="new_email" id="newEmail" placeholder="Enter your new email">
+                      </div>
+                      <div class="form-group">
+                        <label for="confirmEmail">Confirm New Email</label>
+                        <input type="email" class="form-control" name="confirm_email" id="confirmEmail" placeholder="Confirm your new email">
+                      </div>
+                      <input type="submit" class="btn btn-primary" name="action" value="Change Email" />
+                    </form>
+                  </div>
+                </div>
+          </div>
+        </div>
+    </div>
+
+  {% endblock %}
