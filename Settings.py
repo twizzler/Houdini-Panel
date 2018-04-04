@@ -26,7 +26,7 @@ class Settings(object):
         elif new_email != confirm_email:
             return flash("The new emails don't match!", "danger")
         elif email_exists:
-            return flash("The email already exists!")
+            return flash("The email already exists!", "danger")
 
         user.Email = new_email
         self.session.commit()
