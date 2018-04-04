@@ -1,0 +1,35 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <a class="navbar-brand" href="#">Houdini</a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('settings') }}">Settings</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('support') }}">Support</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <h5 class="my-0 mr-md-auto font-weight-normal"></h5>
+    {% if session["user"] %}
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{session["user"]["username"]}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ url_for('settings') }}">Settings</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a>
+        </div>
+      {% else %}
+         <a class="nav-link" href="{{ url_for('index') }}">Login</a>
+         <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+      {% endif %}
+</div>
