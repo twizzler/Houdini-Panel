@@ -26,8 +26,8 @@ class Config(object):
         }
         self.config["recaptcha"] = {
             "recaptcha_enabled": True,  # Enabled True or Disabled False
-            "recaptcha_site_key": "6Lei8BMTAAAAAHJPbumNV5wjZJsY_8axnQvigdVt",
-            "recaptcha_secret_key": "6Lei8BMTAAAAAGpIzsW_zCgqnWA4qEgBm0HArkUf"
+            "recaptcha_site_key": "",   # Add your recaptcha's public key
+            "recaptcha_secret_key": ""  # Add your recaptcha's secret key
         }
         self.config["register"] = {
             "allowed_chars": re.compile(r"^[^<>/{}[\]~`]*$")  # Change this to allow more characters
