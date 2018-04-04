@@ -224,8 +224,8 @@ def support():
 
 @app.route("/logout")
 def logout():
-    """ We basically remove the keys from our session we created above in the index method
-        to require the player to log out the player. We also tell the player that he can't
+    """ We basically remove the keys from the session that we created above in the index method
+        to require the player to log in again. We also tell the player that he can't
         logout if he's not logged in"""
     if Session.get("logged_in") is None:
         flash("You are not logged in therefore you can't log out!", "danger")
