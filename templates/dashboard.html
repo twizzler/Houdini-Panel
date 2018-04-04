@@ -1,0 +1,68 @@
+    {% extends 'layout.html' %}
+    {% block title %}Houdini - Login{% endblock %}
+
+    {% block body %}
+
+     <style>
+         .card {
+             top: -128px;
+             display: inline-block
+         }
+        #stats{
+            display: inline-block;
+            width: 73%;
+        }
+     </style>
+
+   <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Hello, {{ user.Username }}.</h1>
+        <p class="lead">This is your user control panel. Here you can adjust various settings and get help from staff members.</p>
+      </div>
+    </div>
+
+    <div class="container">
+        {% include "includes/_messages.html" %}
+            <div id="player">
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Penguin Preview</h5>
+                  <img class="card-img-top" src="{{ url_for('getAvatar', id=user.ID, size=300)}}" alt="Card image cap">
+              </div>
+            </div>
+
+            <div id="stats">
+                <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <th scope="row">Player ID</th>
+                      <td>{{ user.ID }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Username</th>
+                      <td>{{ user.Username }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Email</th>
+                      <td colspan="2">{{ user.Email }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Rank</th>
+                      <td colspan="2">{{ session["user"]["rank"] }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Minutes Played</th>
+                      <td colspan="2">{{ user.MinutesPlayed }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Beta Tester</th>
+                      <td colspan="2">Yes</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+  {% endblock %}
