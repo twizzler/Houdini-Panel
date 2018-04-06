@@ -37,7 +37,7 @@ recaptcha = ReCaptcha(app)
 recaptcha.init_app(app)
 
 Settings = Settings(session)
-Utils = Utils()
+Utils = Utils(Session)
 Avatar = Avatar()
 
 
@@ -163,12 +163,8 @@ def register():
 
 
 @app.route("/dashboard")
+@Utils.login_required
 def dashboard():
-    # We can't let the player access the dashboard if he is not logged in!
-    if Session.get("logged_in") is None:
-        flash("You have to login first if you want to access the dashboard!", "warning")
-        return redirect(url_for("index"))
-
     # Again, this is the user's database model
     user = session.query(User).filter_by(Username=Session["user"]["username"]).first()
 
@@ -178,12 +174,8 @@ def dashboard():
 
 
 @app.route("/settings", methods=["GET", "POST"])
+@Utils.login_required
 def settings():
-    # Once again, if the user is not logged in, we can't let him access this page
-    if Session.get("logged_in") is None:
-        flash("You have to login first if you want to access the settings!", "warning")
-        return redirect(url_for("index"))
-
     # And again, this is the user's database model
     user = session.query(User).filter_by(Username=Session["user"]["username"]).first()
 
@@ -214,22 +206,18 @@ def settings():
 
 
 @app.route("/support", methods=["GET", "POST"])
+@Utils.login_required
 def support():
     # Coming soon !
     flash("The support system is coming soon!", "info")
-    if Session.get("logged_in") is None:
-        return redirect(url_for("index"))
     return redirect(url_for("dashboard"))
 
 
 @app.route("/logout")
+@Utils.login_required
 def logout():
-    """ We basically remove the keys from the session that we created above in the index method
-        to require the player to log in again. We also tell the player that he can't
-        logout if he's not logged in"""
-    if Session.get("logged_in") is None:
-        flash("You are not logged in therefore you can't log out!", "danger")
-        return redirect(url_for("index"))
+    """ We basically remove the keys from the session that we created 
+        above in the index method"""
 
     Session.clear()
     flash("You have successfully logged out!", "success")
