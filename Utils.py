@@ -1,9 +1,24 @@
-from flask import render_template
+from flask import render_template, flash, redirect, url_for
+from functools import wraps
 import hashlib
 
 
 class Utils(object):
     # I don't really use this method
+    def __init__(self, session=None):
+        self.session = session
+
+    def login_required(self, f):
+        @wraps(f)
+        def wrap(*args, **kwargs):
+            if "logged_in" in self.session:
+                return f(*args, **kwargs)
+            else:
+                flash("You need to login first before doing this!", "danger")
+                return redirect(url_for("index"))
+
+        return wrap
+    
     def send_output(self, file, type, message):
         if type == "error":
             return render_template(file, error=message)
