@@ -27,7 +27,6 @@ Then you will need a bunch of Packages
 - bcrypt
 - requests
 - mysql-python
-- re
 
 You will then want to take a look at Config.py and edit it to match with your server's installation.
 
