@@ -4,7 +4,6 @@ import hashlib
 
 
 class Utils(object):
-    # I don't really use this method
     def __init__(self, session=None):
         self.session = session
 
@@ -19,6 +18,7 @@ class Utils(object):
 
         return wrap
     
+    # I don't really use this method
     def send_output(self, file, type, message):
         if type == "error":
             return render_template(file, error=message)
