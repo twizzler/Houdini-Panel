@@ -3,7 +3,7 @@
 This user panel was written in **Flask** entirely by myself. I've used [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) for the styling.  
 However, the [Avatar API](https://github.com/Times-0/Avatar/blob/master/Avatar.py) was written by Dote  that I simply implemented in this user control panel.  
 
-I've left comments everywhere in **__ init __**.py  just in case you don't understand something. If you are facing any issues or if you don't understand something you can add me on discord **kevin#2572**  
+I've left comments everywhere in **__ init __**.py  just in case you don't understand something. If you are facing any issues or if you don't understand something you can add me on discord **kevin#6832**  
   
 This is free to use and edit but please keep the footer as it is, or if you change the design, include  
 - 'Backend code by Kevin'.  
@@ -35,5 +35,3 @@ Once you've done all of the steps I listed above which are install the packages 
 
 And edited the Config.py, you can now run the main file as such and have it run forever :-)
 >python __init__.py
-
-[Here](https://i.succ.in/Wuvxjodv.webm) is a webm if you wish to see the panel.
